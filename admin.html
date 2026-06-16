@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>แอดมิน — ระบบเก็บลิงค์เว็บแอป</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1 class="brand" id="brandName">ระบบเก็บลิงค์เว็บแอปที่พัฒนา</h1>
+      <nav class="nav">
+        <a href="index.html" data-i18n="nav_public">หน้าหลัก</a>
+        <a href="admin.html" class="active" data-i18n="nav_admin">แอดมิน</a>
+        <button class="btn btn-sm" id="langBtn" data-i18n="lang_switch">EN</button>
+        <button class="btn btn-sm hidden" id="logoutBtn" data-i18n="logout">ออกจากระบบ</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- หน้าล็อกอิน -->
+  <div class="login-wrap" id="loginView">
+    <div class="login-card">
+      <h2 data-i18n="login_title">เข้าสู่ระบบแอดมิน</h2>
+      <div class="field">
+        <label data-i18n="password">รหัสผ่าน</label>
+        <input type="password" id="passwordInput" autocomplete="current-password">
+      </div>
+      <button class="btn btn-primary" id="loginBtn" style="width:100%" data-i18n="login_btn">เข้าสู่ระบบ</button>
+    </div>
+  </div>
+
+  <!-- หน้าจัดการ -->
+  <main class="container hidden" id="adminView">
+    <div class="toolbar">
+      <div class="search">
+        <input type="text" id="searchInput" data-i18n-ph="search_placeholder" placeholder="ค้นหา...">
+      </div>
+      <button class="btn btn-primary" id="addBtn" data-i18n="add_new">+ เพิ่มรายการใหม่</button>
+      <button class="btn" id="exportBtn" data-i18n="export_csv">ส่งออก CSV</button>
+      <span class="count-badge" id="countBadge"></span>
+    </div>
+    <div id="tableArea"></div>
+  </main>
+
+  <!-- Modal ฟอร์มเพิ่ม/แก้ไข -->
+  <div class="modal hidden" id="formModal">
+    <div class="modal-dialog">
+      <h3 id="formTitle" data-i18n="form_add_title">เพิ่มรายการใหม่</h3>
+      <input type="hidden" id="f_id">
+      <div class="field">
+        <label data-i18n="f_name">ชื่อระบบ</label>
+        <input type="text" id="f_name">
+      </div>
+      <div class="field">
+        <label data-i18n="f_webapp">ลิงค์ Web App</label>
+        <input type="url" id="f_webAppUrl" placeholder="https://...">
+      </div>
+      <div class="field">
+        <label data-i18n="f_sheet">ลิงค์ Google Sheet</label>
+        <input type="url" id="f_sheetUrl" placeholder="https://docs.google.com/spreadsheets/...">
+      </div>
+      <div class="field">
+        <label data-i18n="f_category">หมวดหมู่</label>
+        <input type="text" id="f_category" list="catList">
+        <datalist id="catList"></datalist>
+      </div>
+      <div class="field">
+        <label data-i18n="f_owner">ผู้พัฒนา</label>
+        <input type="text" id="f_owner">
+      </div>
+      <div class="field">
+        <label data-i18n="f_description">คำอธิบาย</label>
+        <textarea id="f_description" rows="3"></textarea>
+      </div>
+      <div class="field">
+        <label data-i18n="f_status">สถานะ</label>
+        <select id="f_status">
+          <option value="active" data-i18n="status_active">ใช้งาน</option>
+          <option value="archived" data-i18n="status_archived">เก็บถาวร</option>
+        </select>
+      </div>
+      <div class="form-actions">
+        <button class="btn" id="formCancel" data-i18n="cancel">ยกเลิก</button>
+        <button class="btn btn-primary" id="formSave" data-i18n="save">บันทึก</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/qr.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ระบบเก็บลิงค์เว็บแอปที่พัฒนา</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1 class="brand" id="brandName">ระบบเก็บลิงค์เว็บแอปที่พัฒนา</h1>
+      <nav class="nav">
+        <a href="index.html" class="active" data-i18n="nav_public">หน้าหลัก</a>
+        <a href="admin.html" data-i18n="nav_admin">แอดมิน</a>
+        <button class="btn btn-sm" id="langBtn" data-i18n="lang_switch">EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="toolbar">
+      <div class="search">
+        <input type="text" id="searchInput" data-i18n-ph="search_placeholder" placeholder="ค้นหา...">
+      </div>
+      <select id="categoryFilter" style="width:auto;min-width:160px">
+        <option value="" data-i18n="all_categories">ทุกหมวดหมู่</option>
+      </select>
+      <span class="count-badge" id="countBadge"></span>
+    </div>
+
+    <div id="content">
+      <div class="state">
+        <div class="spinner"></div>
+        <div data-i18n="loading">กำลังโหลด...</div>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- QR library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/qr.js"></script>
+  <script src="assets/js/public.js"></script>
+</body>
+</html>

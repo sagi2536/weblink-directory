@@ -322,3 +322,41 @@ td .row-actions { display: flex; gap: 6px; }
   .brand { font-size: 1rem; width: 100%; }
   .topbar-inner { gap: 10px; }
 }
+
+/* ============ ธีม Light (override จาก Dark ที่เป็นค่าเริ่มต้น) ============ */
+:root[data-theme="light"] {
+  --primary: #4f6bff;
+  --primary-dark: #3b54e0;
+  --primary-glow: rgba(79, 107, 255, .30);
+  --text: #1e2638;
+  --muted: #5a6478;
+  --glass-bg: rgba(255, 255, 255, .55);
+  --glass-bg-strong: rgba(255, 255, 255, .72);
+  --glass-border: rgba(255, 255, 255, .75);
+  --glass-border-strong: rgba(255, 255, 255, .95);
+  --shadow: 0 8px 32px rgba(60, 80, 140, .16);
+}
+[data-theme="light"] body {
+  background-color: #eef1f8;
+  background-image:
+    radial-gradient(42rem 42rem at 12% -8%, rgba(124, 92, 255, .22), transparent 60%),
+    radial-gradient(38rem 38rem at 105% 0%, rgba(0, 196, 204, .20), transparent 55%),
+    radial-gradient(45rem 45rem at 50% 115%, rgba(255, 86, 158, .16), transparent 55%);
+}
+[data-theme="light"] .topbar { background: rgba(255, 255, 255, .6); border-bottom-color: rgba(0, 0, 0, .07); }
+[data-theme="light"] .brand {
+  background: linear-gradient(90deg, #3b54e0, #5b7cff 55%, #1d9e88);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+[data-theme="light"] select option { background: #fff; color: #1e2638; }
+[data-theme="light"] .tag { background: rgba(79, 107, 255, .12); color: #2f3eb5; border-color: rgba(79, 107, 255, .3); }
+[data-theme="light"] .tag.archived { background: rgba(0, 0, 0, .05); color: var(--muted); border-color: rgba(0, 0, 0, .1); }
+[data-theme="light"] .btn-danger { color: #b42318; background: rgba(255, 107, 107, .12); border-color: rgba(255, 107, 107, .4); }
+[data-theme="light"] .btn:hover { background: rgba(0, 0, 0, .05); }
+[data-theme="light"] th { background: rgba(0, 0, 0, .035); }
+[data-theme="light"] tbody tr:hover { background: rgba(0, 0, 0, .03); }
+[data-theme="light"] th, [data-theme="light"] td { border-bottom-color: rgba(0, 0, 0, .08); }
+[data-theme="light"] .qr-modal, [data-theme="light"] .modal { background: rgba(20, 26, 48, .35); }
+[data-theme="light"] .qr-dialog, [data-theme="light"] .modal-dialog { background: rgba(255, 255, 255, .82); }
+[data-theme="light"] .toast { background: rgba(255, 255, 255, .9); color: #1e2638; }
